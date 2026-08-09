@@ -3,6 +3,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import portimage from '../assets/photos/port.png'
 import e_comimage from '../assets/photos/e-com.png'
 import Weatherimage from '../assets/photos/weather.png'
+import { motion } from 'framer-motion';
 export const Projects = () => {
   const projectsData = [
     {
@@ -18,7 +19,7 @@ export const Projects = () => {
       description: 'A responsive and modern personal portfolio designed to showcase my skills, projects, and professional journey with smooth UI interactions.',
       image: portimage, 
       techStack: ['React', 'Tailwind CSS', 'Framer Motion'],
-      githubLink: '#',
+      githubLink: 'https://github.com/salemzayed90/portfolio.git',
       demoLink: '#',
     },
     {
@@ -34,7 +35,11 @@ export const Projects = () => {
   return (
     <section id="projects" className="w-full py-20 bg-slate-950">
       
-      {/* عنوان السكشن */}
+      <motion.div 
+      initial={{opacity:0,y:-30}}
+      whileInView={{opacity:1,y:0}}
+      transition={{duration:0.6}}
+      >
       <div className="text-center mb-12 px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-2">
           Featured <span className="text-teal-400">Projects</span>
@@ -43,10 +48,15 @@ export const Projects = () => {
           A glimpse into my recent web development work
         </p>
       </div>
-
+</motion.div>
      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-16 lg:px-24">
-        
+  
+         <motion.div 
+      initial={{opacity:0,y:-30}}
+      whileInView={{opacity:1,y:0}}
+      transition={{duration:0.6}}
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-16 lg:px-24"
+      >
         {projectsData.map((project, index) => (
           <div 
             key={index} 
@@ -107,8 +117,8 @@ export const Projects = () => {
             
           </div>
         ))}
+  </motion.div>
 
-      </div>
     </section>
   );
 };
